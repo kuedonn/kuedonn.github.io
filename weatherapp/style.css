@@ -15,12 +15,13 @@ body {
 }
 
 input[type="text"]{
-    display: flex;
+    text-align: center;
     height: 50px;
     width: 600px;
     background-color: #e7e7e7;
     font-family: 'Mukta Mahee',sans-serif;
     font-weight: 600;
+    margin:auto 0;
 }
 
 .display {

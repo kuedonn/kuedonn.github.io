@@ -15,8 +15,8 @@ button.addEventListener('click', function(){
     let tempValue = data['main']['temp'];
     let descValue = data['weather'][0]['description']; 
     cityname.innerHTML = nameValue;
-    temp.innerHTML = tempValue;
-    desc.innerHTML = descValue;
+    temp.innerHTML = "temperature: " + (tempValue.toFixed(1)) +"°C";
+    desc.innerHTML = "Current weather: " + descValue;
 })
 .catch(err => alert("Wrong city name"))
 })
