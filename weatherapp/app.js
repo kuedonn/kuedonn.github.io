@@ -5,6 +5,11 @@ let cityname = document.querySelector('.cityname');
 let desc = document.querySelector('.desc');
 let temp = document.querySelector('.temp');
 let time = document.querySelector('.time');
+let wind = document.querySelector('.wind');
+let feelslike = document.querySelector('.feelslike');
+let tempmin = document.querySelector('.tempmin');
+let tempmax = document.querySelector('.tempmax');
+let windgust = document.querySelector('.windgust');
 
 button.addEventListener('click', function(){
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid=3915b57a37556d0743125578a4b6aaa8&units=metric")
@@ -14,14 +19,25 @@ button.addEventListener('click', function(){
 
     let nameValue = data['name'];
     let tempValue = data['main']['temp'];
+    let tempfeelsValue = data['main']['feels_like'];
+    let maxtempValue = data['main']['temp_max'];
+    let mintempValue = data['main']['temp_min'];
+    let weatherValue = data['weather'][0]['main'];
     let descValue = data['weather'][0]['description'];
     let timeValue = data['dt'];
     let timeZoneValue =  data['timezone'];
+    let windValue = data['wind']['speed'];
+    let gustValue = data['wind']['gust'];
 
     cityname.innerHTML = nameValue;
     temp.innerHTML = "Temperature: " + (tempValue.toFixed(1)) +"°C";
-    desc.innerHTML = "Current weather: " + descValue;
+    feelslike.innerHTML = "Feels like: " + tempfeelsValue + "°C";
+    tempmin.innerHTML = "Min temperature: " + mintempValue + "°C";
+    tempmax.innerHTML = "Max temperature: " + maxtempValue + "°C";
+    desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue;
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue);
+    wind.innerHTML = "Wind speed: " + windValue + "m/s";
+    windgust.innerHTML = "Wind gust: " + gustValue + "m/s";
 })
 .catch(err => alert("Wrong city name"))
 })
