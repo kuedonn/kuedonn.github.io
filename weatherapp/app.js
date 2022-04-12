@@ -17,23 +17,23 @@ button.addEventListener('click', function(){
     .then(data => {
         console.log(data)
 
-    let nameValue = data['name'];
-    let tempValue = data['main']['temp'];
-    let tempfeelsValue = data['main']['feels_like'];
-    let maxtempValue = data['main']['temp_max'];
-    let mintempValue = data['main']['temp_min'];
-    let weatherValue = data['weather'][0]['main'];
-    let descValue = data['weather'][0]['description'];
-    let timeValue = data['dt'];
-    let timeZoneValue =  data['timezone'];
-    let windValue = data['wind']['speed'];
-    let gustValue = data['wind']['gust'];
+    let nameValue = data.name;
+    let tempValue = data.main.temp;
+    let tempfeelsValue = data.main.feels_like;
+    let maxtempValue = data.main.temp_max;
+    let mintempValue = data.main.temp_min;
+    let weatherValue = data.weather[0].main;
+    let descValue = data.weather[0].description;
+    let timeValue = data.dt;
+    let timeZoneValue =  data.timezone;
+    let windValue = data.wind.speed;
+    let gustValue = data.wind.gust;
 
     cityname.innerHTML = nameValue;
-    temp.innerHTML = "Temperature: " + (tempValue.toFixed(1)) +"°C";
-    feelslike.innerHTML = "Feels like: " + tempfeelsValue + "°C";
-    tempmin.innerHTML = "Min temperature: " + mintempValue + "°C";
-    tempmax.innerHTML = "Max temperature: " + maxtempValue + "°C";
+    temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C";
+    feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C";
+    tempmin.innerHTML = "Min temperature: " + mintempValue.toFixed(1) + "°C";
+    tempmax.innerHTML = "Max temperature: " + maxtempValue.toFixed(1) + "°C";
     desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue;
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue);
     wind.innerHTML = "Wind speed: " + windValue + "m/s";
@@ -146,3 +146,6 @@ function convertDate (timeValue,timeZoneValue) {
     return convertedTime;
 }
 
+function darktheme() {
+    
+}
