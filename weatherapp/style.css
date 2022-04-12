@@ -33,7 +33,6 @@ input:hover {
 
 .display {
     text-align: center;
-    margin-top: 10px;
     border-radius: 15px;
     background-color: white;
 }
@@ -51,7 +50,7 @@ input:hover {
 }
 
 .container {
-    height: 20rem;
+    height: 20.45rem;
     width: 15rem;
     margin: 0 auto;
     background-color: lightgray;

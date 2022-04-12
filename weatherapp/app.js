@@ -27,7 +27,7 @@ button.addEventListener('click', function(){
     let timeValue = data.dt;
     let timeZoneValue =  data.timezone;
     let windValue = data.wind.speed;
-    let rainValue = data.rain['1h'];
+    // let rainValue = data.rain['1h']; this breaks everything
     let humidityValue = data.main.humidity;
 
     cityname.innerHTML = nameValue;
@@ -38,11 +38,12 @@ button.addEventListener('click', function(){
     desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue;
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue);
     wind.innerHTML = "Wind speed: " + windValue + "m/s";
-    if (rainValue == null){
+    /*if (rainValue == null){
         rain.innerHTML = "No rain recorded";
     }else{
         rain.innerHTML = "Rain(1h): " + rainValue + "mm";
     }
+     */
     humidity.innerHTML = "Humidity: " + humidityValue + "%";
 })
 .catch(err => alert("Wrong city name"))
