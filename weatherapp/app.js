@@ -1,4 +1,3 @@
-
 let button = document.querySelector('.button');
 let inputValue = document.querySelector('.inputValue');
 let cityname = document.querySelector('.cityname');
@@ -9,7 +8,8 @@ let wind = document.querySelector('.wind');
 let feelslike = document.querySelector('.feelslike');
 let tempmin = document.querySelector('.tempmin');
 let tempmax = document.querySelector('.tempmax');
-let windgust = document.querySelector('.windgust');
+let rain = document.querySelector('.rain');
+let humidity = document.querySelector('.humidity');
 
 button.addEventListener('click', function(){
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid=3915b57a37556d0743125578a4b6aaa8&units=metric")
@@ -27,7 +27,8 @@ button.addEventListener('click', function(){
     let timeValue = data.dt;
     let timeZoneValue =  data.timezone;
     let windValue = data.wind.speed;
-    let gustValue = data.wind.gust;
+    let rainValue = data.rain['1h'];
+    let humidityValue = data.main.humidity;
 
     cityname.innerHTML = nameValue;
     temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C";
@@ -37,11 +38,15 @@ button.addEventListener('click', function(){
     desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue;
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue);
     wind.innerHTML = "Wind speed: " + windValue + "m/s";
-    windgust.innerHTML = "Wind gust: " + gustValue + "m/s";
+    if (rainValue == null){
+        rain.innerHTML = "No rain recorded";
+    }else{
+        rain.innerHTML = "Rain(1h): " + rainValue + "mm";
+    }
+    humidity.innerHTML = "Humidity: " + humidityValue + "%";
 })
 .catch(err => alert("Wrong city name"))
 })
-
 
 function convertDate (timeValue,timeZoneValue) {
     let date = new Date(timeValue*1000);
@@ -147,5 +152,5 @@ function convertDate (timeValue,timeZoneValue) {
 }
 
 function darktheme() {
-    
+
 }
