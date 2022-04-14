@@ -54,7 +54,8 @@ function convertDate (timeValue,timeZoneValue) {
     let dtime = timeZoneValue/3600;  //getting GTM time offset 
     let offset = dtime;
     if (offset > 0) offset = "+" + offset; //getting correct symbol for positive GMT time
-    return ( date.getHours()-3 + dtime + ":" + date.getMinutes() + ":" + date.getSeconds() + " GMT " + offset); //returning the full time + offset in GMT timezone
+    return ( date.getHours()-3 + dtime + ":" + date.getMinutes() + ":" + date.getSeconds() + " GMT " + offset); 
+    //returning the full time + offset in GMT timezone, gethours -3 for summertime, -2 for winter
 }
 
 function darktheme() {
