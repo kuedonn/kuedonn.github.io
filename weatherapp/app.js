@@ -8,7 +8,6 @@ let wind = document.querySelector('.wind');
 let feelslike = document.querySelector('.feelslike');
 let tempmin = document.querySelector('.tempmin');
 let tempmax = document.querySelector('.tempmax');
-let rain = document.querySelector('.rain');
 let humidity = document.querySelector('.humidity');
 
 button.addEventListener('click', function(){ //on submit click from user
@@ -27,7 +26,6 @@ button.addEventListener('click', function(){ //on submit click from user
     let timeValue = data.dt;
     let timeZoneValue =  data.timezone;
     let windValue = data.wind.speed;
-    // let rainValue = data.rain['1h']; this breaks everything
     let humidityValue = data.main.humidity;
 
     cityname.innerHTML = nameValue;
@@ -38,12 +36,6 @@ button.addEventListener('click', function(){ //on submit click from user
     desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue; //current weather and small description
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue); //getting specific location local time from user input city name
     wind.innerHTML = "Wind speed: " + windValue + "m/s"; // wind speed m/s
-    /*if (rainValue == null){
-        rain.innerHTML = "No rain recorded";
-    }else{
-        rain.innerHTML = "Rain(1h): " + rainValue + "mm";
-    }
-     */
     humidity.innerHTML = "Humidity: " + humidityValue + "%"; //getting humidity %
 })
 .catch(err => alert("Wrong city name"))

@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Mukta Mahee',sans-serif;
+    background-image: url('https://i.redd.it/odzl4l32k1l81.jpg');
     background-color: lightgray;
 }
 
@@ -33,7 +34,7 @@ input:hover {
 
 .display {
     text-align: center;
-    border-radius: 15px;
+    border-radius: 14px;
     background-color: white;
 }
 
@@ -41,12 +42,13 @@ input:hover {
     font-family:'Mukta-mahee',sans-serif;
     font-weight: 600;
     text-align: center;
+    background-image: url('https://videohive.img.customer.envatousercontent.com/files/7ba59abf-a544-43cc-82a1-f30e648ef11f/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=fce6accd6c9fc2fd5364c328c407cc7e');
     background-color: lightgoldenrodyellow;
+    color: white;
     padding: 20px;
-    margin-bottom: 50px;
     border-radius: 15px;
-    width: 40em;
-    margin-left: 40em;
+    width: 30em;
+    margin: 20px auto;
 }
 
 .container {
@@ -70,5 +72,6 @@ input:hover {
 }
 
 .button:hover {
-    background-color: orange;
+    background-color: lightgray;
+    color: white;
 }
