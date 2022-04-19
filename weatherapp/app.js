@@ -45,11 +45,11 @@ function convertDate (timeValue,timeZoneValue) {
     let date = new Date(timeValue*1000);  //convert epoch time to js timestamp
     let dtime = timeZoneValue/3600;  //getting GTM time offset 
     let offset = dtime;
+    let minutes = date.getMinutes();
+    if (minutes>=0 && minutes<=9) minutes = "0" + minutes; //it was showing 1 digit only if minutes were lower than 10, so fixed to show correctly 0+minutes
     if (offset > 0) offset = "+" + offset; //getting correct symbol for positive GMT time
-    return ( date.getHours()-3 + dtime + ":" + date.getMinutes() + ":" + date.getSeconds() + " GMT " + offset); 
+    return ( date.getHours()-3 + dtime + ":" + minutes + ":" + date.getSeconds() + " GMT " + offset); 
     //returning the full time + offset in GMT timezone, gethours -3 for summertime, -2 for winter
 }
 
-function darktheme() {
 
-}
