@@ -58,13 +58,13 @@ function convertDate (timeValue,timeZoneValue) {
 function weatherdesc(weatherValue) {
     let displayVal = document.querySelector('.display');
     const img_urls = {
-        clouds: 'https://kuedonn.github.io/weatherapp/images/clouds.gif',
-        clear: 'https://kuedonn.github.io/weatherapp/images/clear.jpg',
-        atmosphere: 'https://kuedonn.github.io/weatherapp/images/mist.gif',
-        snow: 'https://kuedonn.github.io/weatherapp/images/snow.gif',
-        rain: 'https://kuedonn.github.io/weatherapp/images/rain.gif',
-        drizzle: 'https://kuedonn.github.io/weatherapp/images/drizzle.gif',
-        thunderstorm: 'https://kuedonn.github.io/weatherapp/images/thunderstorm.gif'
+        clouds: 'https://kuedonn.github.io/weatherapp/images/clouds.GIF',
+        clear: 'https://kuedonn.github.io/weatherapp/images/clear.JPG',
+        atmosphere: 'https://kuedonn.github.io/weatherapp/images/mist.GIF',
+        snow: 'https://kuedonn.github.io/weatherapp/images/snow.GIF',
+        rain: 'https://kuedonn.github.io/weatherapp/images/rain.GIF',
+        drizzle: 'https://kuedonn.github.io/weatherapp/images/drizzle.GIF',
+        thunderstorm: 'https://kuedonn.github.io/weatherapp/images/thunderstorm.GIF'
     };
     switch(true) {
         case weatherValue==800:
