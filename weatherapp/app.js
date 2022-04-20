@@ -28,12 +28,13 @@ button.addEventListener('click', function(){ //on submit click from user
     let windValue = data.wind.speed;
     let humidityValue = data.main.humidity;
 
-    cityname.innerHTML = nameValue;
+    cityname.innerHTML = "City: " + nameValue;
     temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C"; //temperature now
     feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C"; //feels like temperature
     tempmin.innerHTML = "Min temperature: " + mintempValue.toFixed(1) + "°C"; //min day temperature (doesnt update a lot has a lot of error values)
     tempmax.innerHTML = "Max temperature: " + maxtempValue.toFixed(1) + "°C"; //max day temperature
-    desc.innerHTML = "Current weather: " + weatherValue + " with " + descValue; //current weather and small description
+    desc.innerHTML = "Current weather: " + descValue; //current weather and small description
+    weatherdesc(weatherValue); //calling function to change display background image
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue); //getting specific location local time from user input city name
     wind.innerHTML = "Wind speed: " + windValue + "m/s"; // wind speed m/s
     humidity.innerHTML = "Humidity: " + humidityValue + "%"; //getting humidity %
@@ -53,3 +54,40 @@ function convertDate (timeValue,timeZoneValue) {
 }
 
 
+//change display background dynamically with the weather id 
+function weatherdesc(weatherValue) {
+    let displayVal = document.querySelector('.display');
+    const img_urls = {
+        clouds: 'https://media1.giphy.com/media/5HK4TiiBeLSZq/giphy.gif?cid=ecf05e470flal8w2q9rxfux8kgct3465d49sgcfx8n02ykul&rid=giphy.gif&ct=g',
+        clear: 'https://images.pexels.com/photos/789152/pexels-photo-789152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        atmosphere: 'https://i.giphy.com/media/sZmv85pZ8NG60HU9QK/giphy.webp',
+        snow: 'https://media3.giphy.com/media/12wteMTXxjLaVO/giphy.webp?cid=ecf05e47kcovo49vrqt9yl2oo8tzkrbb7npxniq4i48kgjez&rid=giphy.webp&ct=g',
+        rain: 'https://c.tenor.com/ToMwVYhhZSEAAAAC/downsign-overprotective.gif',
+        drizzle: 'https://media3.giphy.com/media/RhqMW0XiUudHE08hfn/giphy.gif?cid=790b7611f5b40230a9acd5682bcdbcceadb68566c3b81855&rid=giphy.gif&ct=g',
+        thunderstorm: 'https://i.giphy.com/media/3oEjHB1EKuujDjYFWw/giphy.webp'
+    };
+    switch(true) {
+        case weatherValue==800:
+            displayVal.style.backgroundImage = "url('"+img_urls.clear+"')";
+            break;
+        case weatherValue>=801 && weatherValue<=804:
+            displayVal.style.backgroundImage = "url('"+img_urls.clouds+"')";
+            break;
+        case weatherValue>=701 && weatherValue<=781:
+            displayVal.style.backgroundImage = "url('"+img_urls.atmosphere+"')"; 
+            break;
+        case weatherValue>=600 && weatherValue<=622:
+            displayVal.style.backgroundImage = "url('"+img_urls.snow+"')";   
+            break;  
+        case weatherValue>=500 && weatherValue<=531:
+            displayVal.style.backgroundImage = "url('"+img_urls.rain+"')";
+            break;  
+        case weatherValue>=300 && weatherValue<=321:
+            displayVal.style.backgroundImage = "url('"+img_urls.drizzle+"')";  
+            break; 
+        case weatherValue>=200 && weatherValue<=232:
+            displayVal.style.backgroundImage = "url('"+img_urls.thunderstorm+"')";
+            displayVal.style.color = "white";   //thunderstorm background image is too dark so change text color to white
+            break;
+    }
+}

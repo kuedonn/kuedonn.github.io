@@ -46,8 +46,15 @@ input:hover {
 
 .display {
     text-align: center;
+    font-size: 18px;
+    height: 18.55rem;
     border-radius: 14px;
     background-color: white;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/12/White_background.png');
+}
+
+.desc {
+    font-size: 14px;
 }
 
 .header {
@@ -64,10 +71,10 @@ input:hover {
 }
 
 .container {
-    height: 20.45rem;
+    overflow: hidden;
+    height: 18.55rem;
     width: 15rem;
     margin: 0 auto;
-    background-color: lightgray;
     text-align: center;
     border-radius: 16px;
     border: 2px solid rgb(14, 43, 1);
