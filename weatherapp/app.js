@@ -47,9 +47,10 @@ function convertDate (timeValue,timeZoneValue) {
     let dtime = timeZoneValue/3600; //getting GTM time offset 
     let offset = dtime;
     let minutes = date.getMinutes();
+    let hours = Math.abs(date.getHours()-3 + dtime); 
     if (minutes>=0 && minutes<=9) minutes = "0" + minutes; //it was showing 1 digit only if minutes were lower than 10, so fixed to show correctly 0+minutes
     if (offset >= 0) offset = "+" + offset; //getting correct symbol for positive GMT time
-    return ( date.getHours()-3 + dtime + ":" + minutes + ":" + date.getSeconds() + " UTC " + offset);
+    return ( hours + ":" + minutes + ":" + date.getSeconds() + " UTC " + offset);
     //returning the full time + offset in GMT timezone, gethours -3 for summertime, -2 for winter
 }
 //change display background dynamically with the weather id
