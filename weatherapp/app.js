@@ -58,13 +58,13 @@ function convertDate (timeValue,timeZoneValue) {
 function weatherdesc(weatherValue) {
     let displayVal = document.querySelector('.display');
     const img_urls = {
-        clouds: 'https://media1.giphy.com/media/5HK4TiiBeLSZq/giphy.gif?cid=ecf05e470flal8w2q9rxfux8kgct3465d49sgcfx8n02ykul&rid=giphy.gif&ct=g',
-        clear: 'https://images.pexels.com/photos/789152/pexels-photo-789152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        atmosphere: 'https://i.giphy.com/media/sZmv85pZ8NG60HU9QK/giphy.webp',
-        snow: 'https://media3.giphy.com/media/12wteMTXxjLaVO/giphy.webp?cid=ecf05e47kcovo49vrqt9yl2oo8tzkrbb7npxniq4i48kgjez&rid=giphy.webp&ct=g',
-        rain: 'https://c.tenor.com/ToMwVYhhZSEAAAAC/downsign-overprotective.gif',
-        drizzle: 'https://media3.giphy.com/media/RhqMW0XiUudHE08hfn/giphy.gif?cid=790b7611f5b40230a9acd5682bcdbcceadb68566c3b81855&rid=giphy.gif&ct=g',
-        thunderstorm: 'https://i.giphy.com/media/3oEjHB1EKuujDjYFWw/giphy.webp'
+        clouds: './images/clouds.gif',
+        clear: './images/clear.jpg',
+        atmosphere: './images/mist.gif',
+        snow: './images/snow.gif',
+        rain: './images/rain.gif',
+        drizzle: './images/drizzle.gif',
+        thunderstorm: './images/thunderstorm.gif'
     };
     switch(true) {
         case weatherValue==800:
