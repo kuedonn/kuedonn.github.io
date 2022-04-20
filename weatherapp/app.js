@@ -82,18 +82,23 @@ function weatherdesc(weatherValue,timeValue,timeZoneValue) {
             break;
         case weatherValue>=801 && weatherValue<=804:
             displayVal.style.backgroundImage = "url('"+img_urls.clouds+"')";
+            displayVal.style.color = "black";
             break;
         case weatherValue>=701 && weatherValue<=781:
-            displayVal.style.backgroundImage = "url('"+img_urls.atmosphere+"')"; 
+            displayVal.style.backgroundImage = "url('"+img_urls.atmosphere+"')";
+            displayVal.style.color = "white";
             break;
         case weatherValue>=600 && weatherValue<=622:
-            displayVal.style.backgroundImage = "url('"+img_urls.snow+"')";   
+            displayVal.style.backgroundImage = "url('"+img_urls.snow+"')"; 
+            displayVal.style.color = "black";  
             break;  
         case weatherValue>=500 && weatherValue<=531:
             displayVal.style.backgroundImage = "url('"+img_urls.rain+"')";
+            displayVal.style.color = "black";
             break;  
         case weatherValue>=300 && weatherValue<=321:
-            displayVal.style.backgroundImage = "url('"+img_urls.drizzle+"')";  
+            displayVal.style.backgroundImage = "url('"+img_urls.drizzle+"')";
+            displayVal.style.color = "black";  
             break; 
         case weatherValue>=200 && weatherValue<=232:
             displayVal.style.backgroundImage = "url('"+img_urls.thunderstorm+"')";
