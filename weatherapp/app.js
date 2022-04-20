@@ -89,5 +89,7 @@ function weatherdesc(weatherValue) {
             displayVal.style.backgroundImage = "url('"+img_urls.thunderstorm+"')";
             displayVal.style.color = "white";   //thunderstorm background image is too dark so change text color to white
             break;
+        default:
+            break;    
     }
 }
