@@ -34,7 +34,7 @@ button.addEventListener('click', function(){ //on submit click from user
     tempmin.innerHTML = "Min temperature: " + mintempValue.toFixed(1) + "°C"; //min day temperature (doesnt update a lot has a lot of error values)
     tempmax.innerHTML = "Max temperature: " + maxtempValue.toFixed(1) + "°C"; //max day temperature
     desc.innerHTML = "Current weather: " + descValue; //current weather and small description
-    weatherdesc(weatherValue); //calling function to change display background image
+    weatherdesc(weatherValue,timeValue,timeZoneValue); //calling function to change display background image
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue); //getting specific location local time from user input city name
     wind.innerHTML = "Wind speed: " + windValue + "m/s"; // wind speed m/s
     humidity.innerHTML = "Humidity: " + humidityValue + "%"; //getting humidity %
@@ -64,11 +64,23 @@ function weatherdesc(weatherValue) {
         snow: 'https://kuedonn.github.io/weatherapp/images/snow.GIF',
         rain: 'https://kuedonn.github.io/weatherapp/images/rain.GIF',
         drizzle: 'https://kuedonn.github.io/weatherapp/images/drizzle.GIF',
-        thunderstorm: 'https://kuedonn.github.io/weatherapp/images/thunderstorm.GIF'
+        thunderstorm: 'https://kuedonn.github.io/weatherapp/images/thunderstorm.GIF',
+        night: 'https://kuedonn.github.io/weatherapp/images/night.GIF'
     };
+
+    //need to get hours so i can change to night sky if its night local time
+    let date = new Date(timeValue*1000);
+    let dtime = timeZoneValue/3600;
+    let globalH = date.getHours()-3 + dtime;
+
     switch(true) {
         case weatherValue==800:
-            displayVal.style.backgroundImage = "url('"+img_urls.clear+"')";
+            if (globalH<=9 || globalH>=19){
+                displayVal.style.backgroundImage = "url('"+img_urls.night+"')";
+                displayVal.style.color = "white";
+                 } else {
+                displayVal.style.backgroundImage = "url('"+img_urls.clear+"')";
+                }
             break;
         case weatherValue>=801 && weatherValue<=804:
             displayVal.style.backgroundImage = "url('"+img_urls.clouds+"')";
