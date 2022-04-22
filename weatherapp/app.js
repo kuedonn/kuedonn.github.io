@@ -56,7 +56,6 @@ function convertDate (timeValue,timeZoneValue) {
 //change display background dynamically with the weather id
 function weatherdesc(weatherValue,timeValue,timeZoneValue) {
     let displayVal = document.querySelector('.display');
-    //github pages needs aboslute path like https://kuedonn.github.io/weatherapp/images/clouds.GI
     const img_urls = {
         clouds: './images/clouds.GIF',
         clear: './images/clear.JPG',
