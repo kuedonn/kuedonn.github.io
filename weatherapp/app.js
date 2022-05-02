@@ -57,8 +57,14 @@ function convertDate (timeValue,timeZoneValue) {
               offset -= 0.5;
               offset = "+" + offset + ":30";
         }else{
-              minutes = Math.abs(minutes-30); //problem
-              hours++;
+              minutes = Math.abs(minutes-30);
+              if (hours>=24){
+                hours = 0;
+                hours++;
+                }
+                else{
+                hours++;
+                }
               offset -= 0.5;
               offset = "+" + offset + ":30";
         }
@@ -70,6 +76,7 @@ function convertDate (timeValue,timeZoneValue) {
         offset = "+" + offset + ":45";
     }
         //it was showing 1 digit only if minutes or seconds were lower than 10, so fixed to show correctly 0+time
+        if (hours>=0 && hours<=9) hours = "0" + hours;
         if (minutes>=0 && minutes<=9) minutes = "0" + minutes;
         if (seconds>=0 && seconds<=9) seconds = "0" + seconds;    
         
