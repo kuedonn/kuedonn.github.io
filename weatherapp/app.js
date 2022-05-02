@@ -44,19 +44,45 @@ button.addEventListener('click', function(){ //on submit click from user
 
 function convertDate (timeValue,timeZoneValue) {
     let date = new Date(timeValue*1000); //convert epoch time to js timestamp
-    let dtime = timeZoneValue/3600; //getting GTM time offset 
+    let dtime = timeZoneValue/3600; //getting GTM/UTC time offset 
     let offset = dtime;
     let minutes = date.getMinutes();
-    let hours = Math.abs(date.getHours()-3 + dtime); 
-    if (minutes>=0 && minutes<=9) minutes = "0" + minutes; //it was showing 1 digit only if minutes were lower than 10, so fixed to show correctly 0+minutes
-    if (offset >= 0) offset = "+" + offset; //getting correct symbol for positive GMT time
-    return ( hours + ":" + minutes + ":" + date.getSeconds() + " UTC " + offset);
-    //returning the full time + offset in GMT timezone, gethours -3 for summertime, -2 for winter
+    let seconds = date.getSeconds();
+    let hours = Math.trunc(Math.abs(date.getHours()-3 + dtime));
+    //it was showing 1 digit only if minutes or seconds were lower than 10, so fixed to show correctly 0+time
+    if (minutes>=0 && minutes<=9) minutes = "0" + minutes;
+    if (seconds>=0 && seconds<=9) seconds = "0" + seconds;
+    if (offset >= 0) offset = "+" + offset;
+    let float_part = scuffedTimeZones(timeZoneValue);
+    // this will probably break when time is under 30 minutes i think, needs another fix, soon tm
+    if (offset >= 0 && float_part==0.50) { 
+         minutes = Math.abs(minutes-30); 
+         hours++;
+         offset -= 0.5;
+         offset = "+" + offset + ":30";
+    }
+    if (offset >= 0 && float_part==0.75) {
+        minutes = Math.abs(minutes-15);
+        hours++;
+        offset -= 0.75;
+        offset = "+" + offset + ":45";
+        }
+        
+    return ( hours + ":" + minutes + ":" + seconds + " UTC " + offset);
+    //returning the full time + offset in UTC timezone, gethours -3 for summertime, -2 for winter
 }
+
+// if its eg 5:45 or 5:30 its scuffed timezone and has to get a fix so it shows properly
+function scuffedTimeZones(timeZoneValue){
+    let diff = timeZoneValue/3600;
+    let int_part = Math.trunc(diff);
+    let float_part = Number(diff-int_part).toFixed(2);
+    return float_part;
+}
+
 //change display background dynamically with the weather id
 function weatherdesc(weatherValue,timeValue,timeZoneValue) {
     let displayVal = document.querySelector('.display');
-    //github pages needs aboslute path like https://kuedonn.github.io/weatherapp/images/clouds.GI
     const img_urls = {
         clouds: './images/clouds.GIF',
         clear: './images/clear.JPG',
