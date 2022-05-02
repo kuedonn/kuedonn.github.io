@@ -49,9 +49,6 @@ function convertDate (timeValue,timeZoneValue) {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     let hours = Math.trunc(Math.abs(date.getHours()-3 + dtime));
-    //it was showing 1 digit only if minutes or seconds were lower than 10, so fixed to show correctly 0+time
-    if (minutes>=0 && minutes<=9) minutes = "0" + minutes;
-    if (seconds>=0 && seconds<=9) seconds = "0" + seconds;
     if (offset >= 0) offset = "+" + offset;
     let float_part = scuffedTimeZones(timeZoneValue);
     // this will probably break when time is under 30 minutes i think, needs another fix, soon tm
@@ -66,7 +63,10 @@ function convertDate (timeValue,timeZoneValue) {
         hours++;
         offset -= 0.75;
         offset = "+" + offset + ":45";
-        }
+    }
+    //it was showing 1 digit only if minutes or seconds were lower than 10, so fixed to show correctly 0+time
+    if (minutes>=0 && minutes<=9) minutes = "0" + minutes;
+    if (seconds>=0 && seconds<=9) seconds = "0" + seconds;    
         
     return ( hours + ":" + minutes + ":" + seconds + " UTC " + offset);
     //returning the full time + offset in UTC timezone, gethours -3 for summertime, -2 for winter
