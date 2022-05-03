@@ -49,7 +49,7 @@ function convertDate (timeValue,timeZoneValue) {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     let hours = Math.trunc(Math.abs(date.getHours()-3 + dtime));
-    if (hours > 24) hours - 24;
+    if (hours > 24) hours = hours - 24;
     if (offset >= 0) offset = "+" + offset;
     let float_part = scuffedTimeZones(timeZoneValue);
     if (offset >= 0 && float_part==0.50) { 
