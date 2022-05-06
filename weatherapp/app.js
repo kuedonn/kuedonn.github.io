@@ -2,12 +2,7 @@ let button = document.querySelector('.button');
 let inputValue = document.querySelector('.inputValue');
 let cityname = document.querySelector('.cityname');
 let desc = document.querySelector('.desc');
-let temp = document.querySelector('.temp');
 let time = document.querySelector('.time');
-let wind = document.querySelector('.wind');
-let feelslike = document.querySelector('.feelslike');
-let tempmin = document.querySelector('.tempmin');
-let tempmax = document.querySelector('.tempmax');
 let humidity = document.querySelector('.humidity');
 
 button.addEventListener('click', function(){ //on submit click from user
