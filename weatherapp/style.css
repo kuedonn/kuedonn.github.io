@@ -67,7 +67,7 @@ input:hover {
     padding: 20px;
     border-radius: 15px;
     width: 30em;
-    margin: 20px auto;
+    margin: 20px auto;  
 }
 
 .container {
@@ -93,4 +93,8 @@ input:hover {
 .button:hover {
     background-color: lightgray;
     color: white;
+}
+
+.dropdownformat {
+    display: inline-block;  
 }

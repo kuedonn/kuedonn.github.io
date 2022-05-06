@@ -29,18 +29,70 @@ button.addEventListener('click', function(){ //on submit click from user
     let humidityValue = data.main.humidity;
 
     cityname.innerHTML = "City: " + nameValue;
-    temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C"; //temperature now
-    feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C"; //feels like temperature
-    tempmin.innerHTML = "Min temperature(1h): " + mintempValue.toFixed(1) + "°C"; //min day temperature (doesnt update a lot has a lot of error values)
-    tempmax.innerHTML = "Max temperature(1h): " + maxtempValue.toFixed(1) + "°C"; //max day temperature
+    convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, windValue);
     desc.innerHTML = "Current weather: " + descValue; //current weather and small description
     weatherdesc(weatherValue,timeValue,timeZoneValue); //calling function to change display background image
     time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue); //getting specific location local time from user input city name
-    wind.innerHTML = "Wind speed: " + windValue + "m/s"; // wind speed m/s
     humidity.innerHTML = "Humidity: " + humidityValue + "%"; //getting humidity %
 })
 .catch(err => alert("Wrong city name"))
 })
+
+
+//function that uses a dropdown html element to choose values for different temperature and wind format values
+function convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, windValue) { 
+    let temp = document.querySelector('.temp');
+    let feelslike = document.querySelector('.feelslike');
+    let tempmin = document.querySelector('.tempmin');
+    let tempmax = document.querySelector('.tempmax');
+    let wind = document.querySelector('.wind');
+
+    let convertValue = document.getElementById('temps').value;
+
+    //FAHRENEIT CONVERTIONS
+    let tempF = ((tempValue * 1.8) + 32).toFixed(1);
+    let feelslikeF = ((tempfeelsValue * 1.8) + 32).toFixed(1);
+    let tempminF = ((mintempValue * 1.8) + 32).toFixed(1);
+    let tempmaxF = ((maxtempValue * 1.8) + 32).toFixed(1);
+
+    let windMPH = ((windValue*2.2369)).toFixed(2); // m/s to mph
+    let windKMH = ((windValue*3.6).toFixed(2)); // m/s to kmh
+
+    switch(convertValue){
+        case 'cms':
+            temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C";
+            feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C";
+            tempmin.innerHTML = "Min temperature(1h): " + mintempValue.toFixed(1) + "°C";
+            tempmax.innerHTML = "Max temperature(1h): " + maxtempValue.toFixed(1) + "°C";
+            wind.innerHTML = "Wind speed: " + windValue + "m/s";
+            break;
+        
+        case 'ckmh':
+            temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C";
+            feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C";
+            tempmin.innerHTML = "Min temperature(1h): " + mintempValue.toFixed(1) + "°C";
+            tempmax.innerHTML = "Max temperature(1h): " + maxtempValue.toFixed(1) + "°C";
+            wind.innerHTML = "Wind speed: " + windKMH + "km/h";
+            break;
+
+        case 'cmph':
+            temp.innerHTML = "Temperature: " + tempValue.toFixed(1) +"°C";
+            feelslike.innerHTML = "Feels like: " + tempfeelsValue.toFixed(1) + "°C";
+            tempmin.innerHTML = "Min temperature(1h): " + mintempValue.toFixed(1) + "°C";
+            tempmax.innerHTML = "Max temperature(1h): " + maxtempValue.toFixed(1) + "°C";
+            wind.innerHTML = "Wind speed: " + windMPH + "mph";
+            break;   
+            
+        case 'fmph':
+            temp.innerHTML = "Temperature: " + tempF +"F";
+            feelslike.innerHTML = "Feels like: " + feelslikeF + "F";
+            tempmin.innerHTML = "Min temperature(1h): " + tempminF + "F";
+            tempmax.innerHTML = "Max temperature(1h): " + tempmaxF + "F";
+            wind.innerHTML = "Wind speed: " + windMPH + "mph";
+            break;
+
+    }
+}
 
 function convertDate (timeValue,timeZoneValue) {
     let date = new Date(timeValue*1000); //convert epoch time to js timestamp
