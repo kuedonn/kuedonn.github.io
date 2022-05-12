@@ -64,24 +64,24 @@ function convertTempWind(tempValue, tempfeelsValue, maxtempValue, windValue, cel
             break;
         
         case 'ckmh':
-                temp.innerHTML =  tempValue.toFixed(1) +"°C";
-                feelslike.innerHTML = tempfeelsValue.toFixed(1) + "°C";
-                tempmax.innerHTML =  maxtempValue.toFixed(1) + "°C";
-                wind.innerHTML = windKMH + "km/h";
+                cell3.innerHTML =  tempValue.toFixed(1) +"°C";
+                cell4.innerHTML = tempfeelsValue.toFixed(1) + "°C";
+                cell5.innerHTML =  maxtempValue.toFixed(1) + "°C";
+                cell6.innerHTML = windKMH + "km/h";
             break;
 
         case 'cmph':
-                temp.innerHTML =  tempValue.toFixed(1) +"°C";
-                feelslike.innerHTML = tempfeelsValue.toFixed(1) + "°C";
-                tempmax.innerHTML =  maxtempValue.toFixed(1) + "°C";
-                wind.innerHTML =  windMPH + "mph";
+                cell3.innerHTML =  tempValue.toFixed(1) +"°C";
+                cell4.innerHTML = tempfeelsValue.toFixed(1) + "°C";
+                cell5.innerHTML =  maxtempValue.toFixed(1) + "°C";
+                cell6.innerHTML =  windMPH + "mph";
             break;   
             
         case 'fmph':
-              temp.innerHTML =  tempF +"F";
-              feelslike.innerHTML = feelslikeF + "F";
-              tempmax.innerHTML = tempmaxF + "F";
-              wind.innerHTML = windMPH + "mph";
+              cell3.innerHTML =  tempF +"F";
+              cell4.innerHTML = feelslikeF + "F";
+              cell5.innerHTML = tempmaxF + "F";
+              cell6.innerHTML = windMPH + "mph";
             break;
 
     }
