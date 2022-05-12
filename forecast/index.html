@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/1163/1163661.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">My weather app</header>
+    <div class="input">
+        <div class="dropdownformat">
+            <label for="temps"></label>
+            <select name="temps" id="temps">
+                <option value="cms" >C/ms</option>
+                <option value="ckmh">C/kmh</option>
+                <option value="cmph">C/mph</option>
+                <option value="fmph">F/mph</option>
+            </select>
+            </div>
+        <input type="text" class="inputValue" placeholder="Enter a city name">
+        <input type="submit" class="button" value="Submit">
+    </div>
+    <div class="container">
+     <div class="display">
+        <table class="table">
+        <tr>
+          <th>Date</th>
+          <th>Weather</th>
+          <th>Temperature</th>
+          <th>Real Feel</th>
+          <th>Max Temp</th>
+          <th>Wind Speed</th>
+          <th>Humidity</th>
+        </tr>   
+        <td class="time"></td>
+        <td class="desc"></td>
+        <td class="temp"></td>
+        <td class="feelslike"></td>
+        <td class="tempmax"></td>
+        <td class="wind"></td>
+        <td class="humidity"></td>
+        </table>  
+     </div>
+    </div>
+
+ <script src="app.js"></script> 
+ <div class="footer"> 
+    Coded by <a href="https://github.com/kuedonn/">Kuedonn 2022</a>
+  </div> 
+    
+</body>
+</html>

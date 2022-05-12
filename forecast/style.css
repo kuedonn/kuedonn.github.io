@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mukta Mahee',sans-serif;
+    background-image: url('https://i.redd.it/odzl4l32k1l81.jpg');
+    background-color: lightgray;
+}
+
+.footer {
+    font-size: 14px; 
+    text-align: center;
+    font-family: 'Overpass',sans-serif;
+    color: white;
+}
+
+.footer a {
+    color: hsl(228, 45%, 44%);
+     text-decoration: underline;
+}
+
+.input {
+    text-align: center;
+}
+
+input[type="text"]{
+    text-align: center;
+    border-radius: 15px;
+    height: 50px;
+    width: 300px;
+    background-color: white;
+    font-family: 'Mukta Mahee',sans-serif;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+input:hover {
+    background-color: rgb(250, 250, 250);
+}
+
+.display {
+    text-align: left;
+    font-size: 18px;
+    height: 35rem;
+    background-color: white;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/12/White_background.png');
+    overflow: scroll;
+}
+
+
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.table {
+    border-spacing: 10px;
+    margin: 0 auto;
+}
+
+.header {
+    font-family:'Mukta-mahee',sans-serif;
+    font-weight: 600;
+    text-align: center;
+    background-image: url('https://videohive.img.customer.envatousercontent.com/files/7ba59abf-a544-43cc-82a1-f30e648ef11f/inline_image_preview.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=fce6accd6c9fc2fd5364c328c407cc7e');
+    background-color: lightgoldenrodyellow;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 30em;
+    margin: 20px auto;
+    
+}
+
+.container {
+    width: 45rem;
+    height: 35rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.button {
+    background-color: white;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+}
+
+.button:hover {
+    background-color: lightgray;
+    color: white;
+}
+
+
+.dropdownformat {
+    display: inline-block;  
+}
