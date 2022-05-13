@@ -5,11 +5,22 @@ let time = document.querySelector('.time');
 let humidity = document.querySelector('.humidity');
 let table = document.querySelector('.table');
 
+let count = 0;
+
 button.addEventListener('click', function(){
     fetch("https://api.openweathermap.org/data/2.5/forecast?q="+inputValue.value+"&appid=3915b57a37556d0743125578a4b6aaa8&units=metric")
     .then(response => response.json())
     .then(data => {
         console.log(data)
+
+        //reset table after every submit so user doesnt have to refresh page every time or brick the app
+        if (count == 0) {
+            count=1;
+        }else if (count==1){
+            for (let i=40; i>=1; i--){
+                table.deleteRow(i+1);  
+            }
+        }
         //get data from 5d/3h API 
     for (let i=0; i<40; i++){
     let tempValue = data.list[i].main.temp;
