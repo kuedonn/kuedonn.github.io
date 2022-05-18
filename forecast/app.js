@@ -52,11 +52,6 @@ button.addEventListener('click', function(){
 })
 
 function convertTempWind(tempValue, tempfeelsValue, maxtempValue, windValue, cell3, cell4, cell5, cell6) { 
-    let temp = document.querySelector('.temp');
-    let feelslike = document.querySelector('.feelslike');
-    let tempmax = document.querySelector('.tempmax');
-    let wind = document.querySelector('.wind');
-
     let convertValue = document.getElementById('temps').value;
 
     let tempF = ((tempValue * 1.8) + 32).toFixed(1);
