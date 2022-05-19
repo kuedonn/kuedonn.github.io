@@ -92,6 +92,69 @@ function convertTempWind(tempValue, tempfeelsValue, maxtempValue, windValue, cel
             break;
 
     }
+
+    switch(true){
+        case (tempValue<=0):
+            cell3.style.backgroundColor = "#0770FF";
+            cell4.style.backgroundColor = "#0770FF";
+            cell5.style.backgroundColor = "#0770FF";
+            break;
+
+        case (tempValue>0 && tempValue<=5):
+            cell3.style.backgroundColor = "#1F99D6";
+            cell4.style.backgroundColor = "#1F99D6";
+            cell5.style.backgroundColor = "#1F99D6";
+            break;
+            
+        case (tempValue>5 && tempValue<=10):
+            cell3.style.backgroundColor = "#21D3F3";
+            cell4.style.backgroundColor = "#21D3F3";
+            cell5.style.backgroundColor = "#21D3F3";
+            break;
+            
+        case (tempValue>10 && tempValue<=15):
+            cell3.style.backgroundColor = "#14EAA3";
+            cell4.style.backgroundColor = "#14EAA3";
+            cell5.style.backgroundColor = "#14EAA3";
+            break;
+
+        case (tempValue>15 && tempValue<=20):
+            cell3.style.backgroundColor = "#14EA5F";
+            cell4.style.backgroundColor = "#14EA5F";
+            cell5.style.backgroundColor = "#14EA5F";
+            break;
+            
+        case (tempValue>20 && tempValue<=25):
+            cell3.style.backgroundColor = "#BCF34D";
+            cell4.style.backgroundColor = "#BCF34D";
+            cell5.style.backgroundColor = "#BCF34D";
+            break;
+            
+        case (tempValue>25 && tempValue<=30):
+            cell3.style.backgroundColor = "#FFFF00";
+            cell4.style.backgroundColor = "#FFFF00";
+            cell5.style.backgroundColor = "#FFFF00";
+            break;
+            
+        case (tempValue>30 && tempValue<=35):
+            cell3.style.backgroundColor = "#D1871C";
+            cell4.style.backgroundColor = "#D1871C";
+            cell5.style.backgroundColor = "#D1871C";
+            break;
+            
+        case (tempValue>35 && tempValue<=37):
+            cell3.style.backgroundColor = "#C2590B";
+            cell4.style.backgroundColor = "#C2590B";
+            cell5.style.backgroundColor = "#C2590B";
+            break;
+            
+        case (tempValue>37):
+            cell3.style.backgroundColor = "#FF0000";
+            cell4.style.backgroundColor = "#FF0000";
+            cell5.style.backgroundColor = "#FF0000";
+            break;    
+
+    }
 }
 
 //this function shows icons instead of description for the weather with id taken from API
