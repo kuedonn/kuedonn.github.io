@@ -48,8 +48,7 @@ input:hover {
     text-align: left;
     font-size: 18px;
     height: 35rem;
-    background-color: white;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/12/White_background.png');
+    background-color: lightgray;
     overflow: scroll;
 }
 
@@ -67,6 +66,7 @@ th {
 .table {
     border-spacing: 10px;
     margin: 0 auto;
+    background-color: lightgray;
 }
 
 .header {
