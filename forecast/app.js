@@ -51,6 +51,51 @@ button.addEventListener('click', function(){
 .catch(err => alert("Wrong city name"))
 })
 
+//this whole code block is for submitting input with enter key, works when the cursor is in the input field atm 
+inputValue.addEventListener('keyup', function(event){
+    event.preventDefault();
+    if (event.keyCode === 13){
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q="+inputValue.value+"&appid=3915b57a37556d0743125578a4b6aaa8&units=metric")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+    if (count == 0) {
+        count=1;
+    }else if (count==1){
+        for (let i=40; i>=1; i--){
+            table.deleteRow(i+1);  
+        }
+    }
+
+    for (let i=0; i<40; i++){
+    let tempValue = data.list[i].main.temp;
+    let tempfeelsValue = data.list[i].main.feels_like;
+    let maxtempValue = data.list[i].main.temp_max;
+    let weatherValue = data.list[i].weather[0].id;
+    console.log(weatherValue);
+    let timeValue = data.list[i].dt_txt;
+    console.log(timeValue);
+    let windValue = data.list[i].wind.speed;
+    let humidityValue = data.list[i].main.humidity;
+    let row = table.insertRow(-1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
+    let cell6 = row.insertCell(5);
+    let cell7 = row.insertCell(6);
+
+    weatherIcons(weatherValue,cell2);
+    convertTempWind(tempValue, tempfeelsValue, maxtempValue, windValue, cell3, cell4, cell5, cell6); 
+    cell7.innerHTML = humidityValue + "%";
+    cell1.innerHTML =  timeValue;
+    }
+})
+.catch(err => alert("Wrong city name"))
+    }
+})
+
 
 function convertTempWind(tempValue, tempfeelsValue, maxtempValue, windValue, cell3, cell4, cell5, cell6) { 
     let convertValue = document.getElementById('temps').value;

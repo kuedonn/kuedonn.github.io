@@ -33,6 +33,38 @@ button.addEventListener('click', function(){ //on submit click from user
 .catch(err => alert("Wrong city name"))
 })
 
+//this whole code block is for submitting input with enter key, works when the cursor is in the input field atm
+inputValue.addEventListener('keyup', function(event){
+    event.preventDefault();
+    if (event.keyCode === 13){
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid=3915b57a37556d0743125578a4b6aaa8&units=metric")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+
+    let nameValue = data.name;
+    let tempValue = data.main.temp;
+    let tempfeelsValue = data.main.feels_like;
+    let maxtempValue = data.main.temp_max;
+    let mintempValue = data.main.temp_min;
+    let weatherValue = data.weather[0].id;
+    let descValue = data.weather[0].description;
+    let timeValue = data.dt;
+    let timeZoneValue =  data.timezone;
+    let windValue = data.wind.speed;
+    let humidityValue = data.main.humidity;
+
+    cityname.innerHTML = "City: " + nameValue;
+    convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, windValue);
+    desc.innerHTML = "Current weather: " + descValue; 
+    weatherdesc(weatherValue,timeValue,timeZoneValue);
+    time.innerHTML = "Local time: " + convertDate(timeValue,timeZoneValue);
+    humidity.innerHTML = "Humidity: " + humidityValue + "%";
+})
+.catch(err => alert("Wrong city name"))
+}
+})
+
 
 //function that uses a dropdown html element to choose values for different temperature and wind format values
 function convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, windValue) { 
