@@ -123,48 +123,10 @@ function convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, 
 
 function convertDate (timeValue,timeZoneValue) {
     let date = new Date(timeValue*1000); //convert epoch time to js timestamp
-    let dtime = timeZoneValue/3600; //getting GTM/UTC time offset
-    let offset = dtime;
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-    let hours = Math.trunc(Math.abs(date.getHours()-3 + dtime));
-    if (hours > 24) hours = hours - 24;
-    if (offset >= 0) offset = "+" + offset;
-    let float_part = scuffedTimeZones(timeZoneValue);
-    if (offset >= 0 && float_part==0.50) { 
-        if (minutes <=30){
-              minutes = Math.abs(minutes+30);
-              offset -= 0.5;
-              offset = "+" + offset + ":30";
-        }else{
-              minutes = Math.abs(minutes-30);
-              hours++;
-              offset -= 0.5;
-              offset = "+" + offset + ":30";
-        }
-    }
-    if (offset >= 0 && float_part==0.75) {
-        minutes = Math.abs(minutes-15);
-        hours++;
-        offset -= 0.75;
-        offset = "+" + offset + ":45";
-    }
-        //it was showing 1 digit only if minutes or seconds were lower than 10, so fixed to show correctly 0+time
-        if (hours>=0 && hours<=9) hours = "0" + hours;
-        if (minutes>=0 && minutes<=9) minutes = "0" + minutes;
-        if (seconds>=0 && seconds<=9) seconds = "0" + seconds;    
-        
-    return ( hours + ":" + minutes + ":" + seconds + " UTC " + offset);
-    //returning the full time + offset in UTC timezone, gethours -3 for summertime, -2 for winter
+    console.log(date.toLocaleTimeString("en-US"));
+    return date.toLocaleTimeString("en-US");
 }
 
-// if its eg 5:45 or 5:30 its scuffed timezone and has to get a fix so it shows properly
-function scuffedTimeZones(timeZoneValue){
-    let diff = timeZoneValue/3600;
-    let int_part = Math.trunc(diff);
-    let float_part = Number(diff-int_part).toFixed(2);
-    return float_part;
-}
 
 //change display background dynamically with the weather id
 function weatherdesc(weatherValue,timeValue,timeZoneValue) {
