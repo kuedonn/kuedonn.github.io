@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.header {
+    text-align: center;
+    margin: 20px;
+    font-size: xx-large;
+    background-color: lightyellow;
+    block-size: auto;
+    width: 300px;
+    align-content: center;
+}
+
+
+.container {  
+    height: 18.55rem;
+    width: 30rem;
+    margin: 0 auto;
+    text-align: center;   
+}
+
+input[type="text"]{
+    text-align: center;
+    border-radius: 15px;
+    height: 50px;
+    width: 300px;
+    background-color: white;
+    font-family: 'Mukta Mahee',sans-serif;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: white;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+}
+
+.button:hover {
+    background-color: lightgray;
+    color: white;
+}
+
+.footer {
+    font-size: 14px; 
+    text-align: center;
+    font-family: 'Overpass',sans-serif;
+    color: white;
+}
+
+.footer a {
+    color: hsl(228, 45%, 44%);
+     text-decoration: underline;
+}
