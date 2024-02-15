@@ -7,10 +7,12 @@ button.addEventListener('click', function(){
 })
 
 function encrypt(inputVal,inputVal2){
+    //splitting string in an array so its easy to convert chars to int and do the maths for the cipher
     let message = inputVal.split('');
     let key = parseInt(inputVal2);
     console.log(message,"message");
     console.log(key,"key");
+    //making chars to integers
     let a = 'a'.charCodeAt();
     let A = 'A'.charCodeAt();
     let z = 'z'.charCodeAt();
