@@ -7,6 +7,7 @@ button.addEventListener('click', function(){
 })
 
 function encrypt(inputVal,inputVal2){
+    let result = document.querySelector(".result");
     let message = inputVal.split('');
     let key = parseInt(inputVal2);
     console.log(message,"message");
@@ -17,7 +18,7 @@ function encrypt(inputVal,inputVal2){
     let Z = 'Z'.charCodeAt();
 
     //choice gia encrypt i decrypt edw
-    let ch;
+    let ch,ascii=[];
     for (let i=0; i<message.length; i++){
         ch = message[i].charCodeAt();
         console.log(ch,"ch");
@@ -40,7 +41,8 @@ function encrypt(inputVal,inputVal2){
             }
             message[i] = ch;
         }
+        ascii[i] = String.fromCharCode(message[i]);
+        console.log(ascii);
     }
-    console.log(message);
-    message.innerText = message;
+    result.innerText = ascii.join("");
 }
