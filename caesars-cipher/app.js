@@ -45,9 +45,11 @@ function encrypt(inputVal,inputVal2){
             }
             message[i] = ch;
         }
+        //converting int array to char array
         ascii[i] = String.fromCharCode(message[i]);
         console.log(ascii);
     }
+    //displaying char array as a string
     result.innerText = ascii.join("");
 }
 
