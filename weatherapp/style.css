@@ -96,5 +96,5 @@ input:hover {
 }
 
 .dropdownformat {
-    display: inline-block;  
+    display: inline-flex;  
 }
