@@ -45,11 +45,9 @@ function encrypt(inputVal,inputVal2){
             }
             message[i] = ch;
         }
-        //converting int array to char array
         ascii[i] = String.fromCharCode(message[i]);
         console.log(ascii);
     }
-    //displaying char array as a string
     result.innerText = ascii.join("");
 }
 
@@ -70,7 +68,8 @@ function decrypt(inputVal,inputVal2){
     for (let i=0; i<message.length; i++){
         ch = message[i].charCodeAt();
         console.log(ch,"ch"); 
-        if (ch == 32){
+        // iterating for space ascii character so its not a null character appearing
+        if (ch >= 32 && ch<=47){ 
             ch = ch - key;
             message[i] = ch;
         }
