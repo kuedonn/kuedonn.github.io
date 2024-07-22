@@ -10,7 +10,7 @@ body {
 
 .header {
     text-align: center;
-    margin: 20px;
+    margin: 30px auto 30px auto;
     font-size: xx-large;
     background-color: lightyellow;
     block-size: auto;
@@ -63,4 +63,17 @@ input[type="text"]{
 .footer a {
     color: hsl(228, 45%, 44%);
      text-decoration: underline;
+}
+
+.dropdownformat {
+    padding-bottom: 40px; 
+}
+
+.result-container {
+    text-align: center;
+    margin: 30px auto 30px auto;
+    font-size: xx-large;
+    background-color: lightyellow;
+    block-size: auto;
+    width: 300px;
 }
