@@ -9,6 +9,13 @@
 <body>
     <header class="header">Caesars Cipher</header>
     <div class="container">
+        <div class="dropdownformat">
+            <label for="choice">Choose encryption/decryption: </label>
+            <select name="crypto" id="crypto">
+                <option value="1" >Encryption</option>
+                <option value="2">Decryption</option>
+            </select>
+            </div>
         <div class="input">
             <input type="text" class="inputVal" placeholder="Enter message to encrypt">
         </div>
@@ -17,7 +24,7 @@
             <input type="submit" class="button" value="Submit">
         </div>
     </div>
-    <div class="container">
+    <div class="result-container">
         <p class="result"></p>
     </div>
 <script src="app.js"></script>
