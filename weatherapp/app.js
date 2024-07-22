@@ -121,11 +121,6 @@ function convertTempWind(tempValue, tempfeelsValue, maxtempValue, mintempValue, 
     }
 }
 
-function convertDate (timeValue,timeZoneValue) {
-    let date = new Date(timeValue*1000); //convert epoch time to js timestamp
-    console.log(date.toLocaleTimeString("en-US"));
-    return date.toLocaleTimeString("en-US");
-}
 
 
 //change display background dynamically with the weather id
